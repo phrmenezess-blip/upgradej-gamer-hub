@@ -163,10 +163,14 @@ function Index() {
                  className="marketplace-card group bg-card rounded-2xl border-2 border-border p-6 shadow-card flex flex-col">
                 <div className="flex items-center gap-4">
                   <div
-                    className="size-14 rounded-xl flex items-center justify-center font-black text-2xl"
-                    style={{ background: m.color, color: m.textDark ? "#000" : "#fff" }}
+                    className="h-14 px-3 min-w-[3.5rem] rounded-xl flex items-center justify-center font-black text-2xl overflow-hidden"
+                    style={{ background: m.logo ? "#f3f4f6" : m.color, color: m.textDark ? "#000" : "#fff" }}
                   >
-                    {m.letter}
+                    {m.logo ? (
+                      <img src={m.logo} alt={m.name} className="h-10 w-auto object-contain" />
+                    ) : (
+                      <span>{m.name.charAt(0)}</span>
+                    )}
                   </div>
                   <div>
                     <div className="font-display font-bold text-xl">{m.name}</div>
