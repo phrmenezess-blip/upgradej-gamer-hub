@@ -32,11 +32,11 @@ export const Route = createFileRoute("/")({
 const WHATS = "https://wa.me/5531972440587";
 
 const marketplaces = [
-  { name: "Shopee", desc: "Ofertas relâmpago e cupons exclusivos", color: "#EE4D2D", url: "#", letter: "S" },
-  { name: "Mercado Livre", desc: "Frete rápido e Mercado Pago seguro", color: "#FFE600", textDark: true, url: "#", letter: "ML" },
-  { name: "Amazon", desc: "Entrega Prime e suporte premium", color: "#FF9900", url: "#", letter: "a" },
-  { name: "TikTok Shop", desc: "Lives, descontos e novidades em primeira mão", color: "#000000", url: "#", letter: "T" },
-  { name: "Magazine Luiza", desc: "Parcele em até 12x sem juros", color: "#0086FF", url: "#", letter: "M" },
+  { name: "Shopee", desc: "Ofertas relâmpago e cupons exclusivos", color: "#EE4D2D", url: "#", logo: mpShopee },
+  { name: "Mercado Livre", desc: "Frete rápido e Mercado Pago seguro", color: "#FFE600", textDark: true, url: "#", logo: mpMercadoLivre },
+  { name: "Amazon", desc: "Entrega Prime e suporte premium", color: "#FF9900", url: "#", logo: mpAmazon },
+  { name: "TikTok Shop", desc: "Lives, descontos e novidades em primeira mão", color: "#000000", url: "#", logo: mpTiktok },
+  { name: "Magazine Luiza", desc: "Parcele em até 12x sem juros", color: "#0086FF", url: "#", logo: null as string | null },
 ];
 
 const benefits = [
