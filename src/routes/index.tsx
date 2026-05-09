@@ -7,7 +7,10 @@ import {
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 import heroImg from "@/assets/hero-bot.png";
-import mascot from "@/assets/mascot.png";
+import mpShopee from "@/assets/mp-shopee.png";
+import mpMercadoLivre from "@/assets/mp-mercadolivre.png";
+import mpAmazon from "@/assets/mp-amazon.png";
+import mpTiktok from "@/assets/mp-tiktok.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,11 +32,11 @@ export const Route = createFileRoute("/")({
 const WHATS = "https://wa.me/5531972440587";
 
 const marketplaces = [
-  { name: "Shopee", desc: "Ofertas relâmpago e cupons exclusivos", color: "#EE4D2D", url: "#", letter: "S" },
-  { name: "Mercado Livre", desc: "Frete rápido e Mercado Pago seguro", color: "#FFE600", textDark: true, url: "#", letter: "ML" },
-  { name: "Amazon", desc: "Entrega Prime e suporte premium", color: "#FF9900", url: "#", letter: "a" },
-  { name: "TikTok Shop", desc: "Lives, descontos e novidades em primeira mão", color: "#000000", url: "#", letter: "T" },
-  { name: "Magazine Luiza", desc: "Parcele em até 12x sem juros", color: "#0086FF", url: "#", letter: "M" },
+  { name: "Shopee", desc: "Ofertas relâmpago e cupons exclusivos", color: "#EE4D2D", url: "#", logo: mpShopee },
+  { name: "Mercado Livre", desc: "Frete rápido e Mercado Pago seguro", color: "#FFE600", textDark: true, url: "#", logo: mpMercadoLivre },
+  { name: "Amazon", desc: "Entrega Prime e suporte premium", color: "#FF9900", url: "#", logo: mpAmazon },
+  { name: "TikTok Shop", desc: "Lives, descontos e novidades em primeira mão", color: "#000000", url: "#", logo: mpTiktok },
+  { name: "Magazine Luiza", desc: "Parcele em até 12x sem juros", color: "#0086FF", url: "#", logo: null as string | null },
 ];
 
 const benefits = [
@@ -125,17 +128,6 @@ function Index() {
             <p className="mt-5 text-lg text-white/75 max-w-xl">
               Hardware, upgrades, periféricos e componentes gamer com envio rápido e atendimento especializado.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#produtos" className="px-6 py-3.5 rounded-lg bg-primary text-primary-foreground font-bold uppercase text-sm tracking-wide hover:brightness-110 transition animate-pulse-glow">
-                Comprar na Shopee
-              </a>
-              <a href="#produtos" className="px-6 py-3.5 rounded-lg bg-white/10 border border-white/20 text-white font-bold uppercase text-sm tracking-wide hover:bg-white/15 transition backdrop-blur">
-                Comprar no Mercado Livre
-              </a>
-              <a href={WHATS} target="_blank" rel="noopener" className="px-6 py-3.5 rounded-lg bg-[var(--whatsapp)] text-white font-bold uppercase text-sm tracking-wide hover:brightness-110 transition flex items-center gap-2">
-                <MessageCircle className="size-4" /> WhatsApp
-              </a>
-            </div>
 
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
               {stats.slice(0,3).map(s => (
@@ -171,10 +163,14 @@ function Index() {
                  className="marketplace-card group bg-card rounded-2xl border-2 border-border p-6 shadow-card flex flex-col">
                 <div className="flex items-center gap-4">
                   <div
-                    className="size-14 rounded-xl flex items-center justify-center font-black text-2xl"
-                    style={{ background: m.color, color: m.textDark ? "#000" : "#fff" }}
+                    className="h-14 px-3 min-w-[3.5rem] rounded-xl flex items-center justify-center font-black text-2xl overflow-hidden"
+                    style={{ background: m.logo ? "#f3f4f6" : m.color, color: m.textDark ? "#000" : "#fff" }}
                   >
-                    {m.letter}
+                    {m.logo ? (
+                      <img src={m.logo} alt={m.name} className="h-10 w-auto object-contain" />
+                    ) : (
+                      <span>{m.name.charAt(0)}</span>
+                    )}
                   </div>
                   <div>
                     <div className="font-display font-bold text-xl">{m.name}</div>
@@ -217,36 +213,29 @@ function Index() {
 
       {/* SOBRE */}
       <section id="sobre" className="py-20 bg-background">
-        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative">
-            <div className="absolute -inset-6 bg-primary/15 blur-3xl rounded-full"></div>
-            <div className="relative bg-[var(--dark)] rounded-3xl p-8 border border-primary/20 overflow-hidden">
-              <div className="absolute inset-0 bg-tech-grid opacity-30"></div>
-              <img src={mascot} alt="Mascote UpgradeJá" className="relative mx-auto w-72 h-auto animate-float" />
-            </div>
-          </div>
-          <div>
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center">
             <div className="text-xs uppercase tracking-widest font-bold text-primary">Sobre a UpgradeJá</div>
             <h2 className="mt-3 text-3xl md:text-5xl font-black">Especialistas em Hardware Gamer</h2>
             <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
               A <strong className="text-foreground">UpgradeJá</strong> é especializada em hardware, upgrades e periféricos gamer, oferecendo
               produtos de qualidade, atendimento rápido e experiência confiável para gamers e entusiastas de tecnologia.
             </p>
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              {[
-                { icon: Cpu, t: "Hardware Premium" },
-                { icon: Users, t: "Time Gamer" },
-                { icon: Rocket, t: "Envio Expresso" },
-                { icon: ShieldCheck, t: "Compra Segura" },
-              ].map(i => (
-                <div key={i.t} className="flex items-center gap-3 p-3 rounded-xl border border-border bg-card">
-                  <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-                    <i.icon className="size-5" />
-                  </div>
-                  <div className="font-semibold">{i.t}</div>
+          </div>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { icon: Cpu, t: "Hardware Premium" },
+              { icon: Users, t: "Time Gamer" },
+              { icon: Rocket, t: "Envio Expresso" },
+              { icon: ShieldCheck, t: "Compra Segura" },
+            ].map(i => (
+              <div key={i.t} className="flex items-center gap-3 p-3 rounded-xl border border-border bg-card">
+                <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                  <i.icon className="size-5" />
                 </div>
-              ))}
-            </div>
+                <div className="font-semibold text-sm">{i.t}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -305,8 +294,12 @@ function Index() {
                 {marketplaces.map(m => (
                   <a key={m.name} href={m.url}
                      className="px-5 py-3 rounded-xl bg-white text-foreground font-bold uppercase text-sm tracking-wide hover:scale-105 transition flex items-center gap-2 shadow-card">
-                    <span className="size-6 rounded-md flex items-center justify-center text-xs font-black"
-                          style={{ background: m.color, color: m.textDark ? "#000" : "#fff" }}>{m.letter}</span>
+                    {m.logo ? (
+                      <img src={m.logo} alt={m.name} className="h-5 w-auto object-contain" />
+                    ) : (
+                      <span className="size-6 rounded-md flex items-center justify-center text-xs font-black"
+                            style={{ background: m.color, color: m.textDark ? "#000" : "#fff" }}>{m.name.charAt(0)}</span>
+                    )}
                     {m.name}
                   </a>
                 ))}
@@ -390,12 +383,6 @@ function Index() {
         </div>
       </footer>
 
-      {/* WhatsApp floating */}
-      <a href={WHATS} target="_blank" rel="noopener"
-         className="fixed bottom-5 right-5 z-50 size-14 rounded-full bg-[var(--whatsapp)] text-white flex items-center justify-center shadow-card-hover animate-pulse-glow hover:scale-110 transition"
-         aria-label="Falar no WhatsApp">
-        <MessageCircle className="size-7" />
-      </a>
     </div>
   );
 }
