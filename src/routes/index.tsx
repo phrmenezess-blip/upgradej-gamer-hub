@@ -294,8 +294,12 @@ function Index() {
                 {marketplaces.map(m => (
                   <a key={m.name} href={m.url}
                      className="px-5 py-3 rounded-xl bg-white text-foreground font-bold uppercase text-sm tracking-wide hover:scale-105 transition flex items-center gap-2 shadow-card">
-                    <span className="size-6 rounded-md flex items-center justify-center text-xs font-black"
-                          style={{ background: m.color, color: m.textDark ? "#000" : "#fff" }}>{m.letter}</span>
+                    {m.logo ? (
+                      <img src={m.logo} alt={m.name} className="h-5 w-auto object-contain" />
+                    ) : (
+                      <span className="size-6 rounded-md flex items-center justify-center text-xs font-black"
+                            style={{ background: m.color, color: m.textDark ? "#000" : "#fff" }}>{m.name.charAt(0)}</span>
+                    )}
                     {m.name}
                   </a>
                 ))}
