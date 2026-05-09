@@ -383,12 +383,6 @@ function Index() {
         </div>
       </footer>
 
-      {/* WhatsApp floating */}
-      <a href={WHATS} target="_blank" rel="noopener"
-         className="fixed bottom-5 right-5 z-50 size-14 rounded-full bg-[var(--whatsapp)] text-white flex items-center justify-center shadow-card-hover animate-pulse-glow hover:scale-110 transition"
-         aria-label="Falar no WhatsApp">
-        <MessageCircle className="size-7" />
-      </a>
     </div>
   );
 }
