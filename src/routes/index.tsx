@@ -7,7 +7,10 @@ import {
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 import heroImg from "@/assets/hero-bot.png";
-import mascot from "@/assets/mascot.png";
+import mpShopee from "@/assets/mp-shopee.png";
+import mpMercadoLivre from "@/assets/mp-mercadolivre.png";
+import mpAmazon from "@/assets/mp-amazon.png";
+import mpTiktok from "@/assets/mp-tiktok.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
