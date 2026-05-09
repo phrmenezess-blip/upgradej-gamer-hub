@@ -128,17 +128,6 @@ function Index() {
             <p className="mt-5 text-lg text-white/75 max-w-xl">
               Hardware, upgrades, periféricos e componentes gamer com envio rápido e atendimento especializado.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#produtos" className="px-6 py-3.5 rounded-lg bg-primary text-primary-foreground font-bold uppercase text-sm tracking-wide hover:brightness-110 transition animate-pulse-glow">
-                Comprar na Shopee
-              </a>
-              <a href="#produtos" className="px-6 py-3.5 rounded-lg bg-white/10 border border-white/20 text-white font-bold uppercase text-sm tracking-wide hover:bg-white/15 transition backdrop-blur">
-                Comprar no Mercado Livre
-              </a>
-              <a href={WHATS} target="_blank" rel="noopener" className="px-6 py-3.5 rounded-lg bg-[var(--whatsapp)] text-white font-bold uppercase text-sm tracking-wide hover:brightness-110 transition flex items-center gap-2">
-                <MessageCircle className="size-4" /> WhatsApp
-              </a>
-            </div>
 
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
               {stats.slice(0,3).map(s => (
