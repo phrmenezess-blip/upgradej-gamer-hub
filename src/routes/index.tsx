@@ -213,36 +213,29 @@ function Index() {
 
       {/* SOBRE */}
       <section id="sobre" className="py-20 bg-background">
-        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative">
-            <div className="absolute -inset-6 bg-primary/15 blur-3xl rounded-full"></div>
-            <div className="relative bg-[var(--dark)] rounded-3xl p-8 border border-primary/20 overflow-hidden">
-              <div className="absolute inset-0 bg-tech-grid opacity-30"></div>
-              <img src={mascot} alt="Mascote UpgradeJá" className="relative mx-auto w-72 h-auto animate-float" />
-            </div>
-          </div>
-          <div>
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center">
             <div className="text-xs uppercase tracking-widest font-bold text-primary">Sobre a UpgradeJá</div>
             <h2 className="mt-3 text-3xl md:text-5xl font-black">Especialistas em Hardware Gamer</h2>
             <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
               A <strong className="text-foreground">UpgradeJá</strong> é especializada em hardware, upgrades e periféricos gamer, oferecendo
               produtos de qualidade, atendimento rápido e experiência confiável para gamers e entusiastas de tecnologia.
             </p>
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              {[
-                { icon: Cpu, t: "Hardware Premium" },
-                { icon: Users, t: "Time Gamer" },
-                { icon: Rocket, t: "Envio Expresso" },
-                { icon: ShieldCheck, t: "Compra Segura" },
-              ].map(i => (
-                <div key={i.t} className="flex items-center gap-3 p-3 rounded-xl border border-border bg-card">
-                  <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-                    <i.icon className="size-5" />
-                  </div>
-                  <div className="font-semibold">{i.t}</div>
+          </div>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { icon: Cpu, t: "Hardware Premium" },
+              { icon: Users, t: "Time Gamer" },
+              { icon: Rocket, t: "Envio Expresso" },
+              { icon: ShieldCheck, t: "Compra Segura" },
+            ].map(i => (
+              <div key={i.t} className="flex items-center gap-3 p-3 rounded-xl border border-border bg-card">
+                <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                  <i.icon className="size-5" />
                 </div>
-              ))}
-            </div>
+                <div className="font-semibold text-sm">{i.t}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
